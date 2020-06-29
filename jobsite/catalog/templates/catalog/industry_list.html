@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Industries List</h1>
+
+    {% if industry_list %}
+    <ul>
+      {% for industry in industry_list %}
+      <li>
+        <a href="{{ industry.get_absolute_url }}">{{ industry.name }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no industries in database.</p>
+    {% endif %}       
+{% endblock %}

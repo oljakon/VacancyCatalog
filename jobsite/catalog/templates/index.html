@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Home</h1>
+
+  <p>Welcome to <em>Vacancy Catalog</em>, an online job search platform.</p>
+
+<h2>Dynamic content</h2>
+
+  <p>Catalog has the following record counts:</p>
+  <ul>
+    <li><strong>Employees:</strong> {{ num_users }}</li>
+    <li><strong>Companies:</strong> {{ num_companies }}</li>
+    <li><strong>Industries:</strong> {{ num_industries }}</li>
+    <li><strong>Cities:</strong> {{ num_cities }}</li>
+  </ul>
+
+{% endblock %}

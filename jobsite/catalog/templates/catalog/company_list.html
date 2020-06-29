@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Companies List</h1>
+
+    {% if company_list %}
+    <ul>
+      {% for company in company_list %}
+          <li><a href="{{ company.get_absolute_url }}">{{ company.name }}</a><br>
+            {% for industry in company.industry.all %}
+              <div style="margin-left:20px">
+                <a>{{ industry.name }}</a>
+              </div>
+            {% endfor %}
+          </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>There are no companies in database.</p>
+    {% endif %}       
+{% endblock %}

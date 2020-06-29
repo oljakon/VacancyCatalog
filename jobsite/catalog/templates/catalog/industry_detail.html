@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Industry: {{ industry.name }}</h1>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Vacancies:</h4>
+
+    {% for copy in industry.jobvacancy_set.all %}
+    <li>
+        <a href="{{ copy.get_absolute_url }}">{{ copy.title }}</a>
+        <a> {{ copy.title }} </a>
+    </li>
+    {% endfor %}
+  </div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>My applications:</h1>
+    {% if application_list %}
+    <ul>
+
+      {% for application in application_list %}
+         <li>
+           <a href="{{ application.job.get_absolute_url }}"> {{application.job}}</a>
+             <a>(applied on {{application.applied_on}})</a>
+         </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no applied vacancies.</p>
+    {% endif %}       
+{% endblock %}

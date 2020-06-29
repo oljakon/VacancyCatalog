@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="d-flex flex-column">
+        <h1>Registration</h1>
+        <div class="p-3 col-4">
+            <form action="{% url 'register' %}" method="POST" novalidate>
+                {% csrf_token %}
+                <input type='hidden' name='next' value='{{ next }}'>
+                <table>
+                    {{ form|crispy }}
+                </table>
+                <button type="submit" class="btn btn-primary m-2">Save</button>
+            </form>
+        </div>
+        <a href="{% url 'login' %}">Have account already? Login </a>
+    </div>
+{% endblock %}
