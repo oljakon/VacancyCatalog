@@ -9,7 +9,6 @@
     {% for copy in industry.jobvacancy_set.all %}
     <li>
         <a href="{{ copy.get_absolute_url }}">{{ copy.title }}</a>
-        <a> {{ copy.title }} </a>
     </li>
     {% endfor %}
   </div>
