@@ -1,13 +1,9 @@
 from django.db import models
-from django.db.models.signals import pre_save, post_save
 from django.template.defaultfilters import slugify
 from django.urls import reverse
-from django.conf import settings
-from django.shortcuts import render, redirect, get_object_or_404
-from ckeditor.fields import RichTextField
 from django.contrib.auth.models import User
+from .managers import JobVacancyManager
 
-# Create your models here.
 
 class City(models.Model):
     name = models.CharField(max_length = 50)
@@ -41,21 +37,6 @@ class Company(models.Model):
 
     def get_absolute_url(self):
         return reverse('company-detail', args=[str(self.id)])
-
-
-class JobVacancyManager(models.Manager):
-    def search_with_filters(self, querydict):
-        jobs = self.all()
-        params = ['industry', 'city', 'company']
-        for param in params:
-            for item in querydict.getlist(param):
-                if param == 'industry':
-                    jobs = jobs.filter(industry__id=item)
-                elif param == 'city':
-                    jobs = jobs.filter(city__id=item)
-                elif param == 'company':
-                    jobs = jobs.filter(company__id=item)
-        return jobs
 
 
 class JobVacancy(models.Model):
