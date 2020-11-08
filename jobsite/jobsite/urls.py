@@ -25,7 +25,7 @@ urlpatterns = [
     path('catalog/', include('catalog.urls')),
     path('', RedirectView.as_view(url='/catalog/', permanent=True)),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('register/', views.RegisterView, name='register'),
+    path('register/', views.RegisterView.as_view(), name='register'),
 ]
 
 from django.conf import settings
