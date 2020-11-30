@@ -3,7 +3,6 @@ from . import views
 from django.conf.urls import url
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
     url(r'^company/$', views.CompanyListView.as_view(), name='company'),
     url(r'^company/(?P<pk>\d+)$', views.CompanyDetailView.as_view(), name='company-detail'),
     url(r'^industry/$', views.IndustryListView.as_view(), name='industry'),
